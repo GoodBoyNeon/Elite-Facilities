@@ -1,5 +1,5 @@
 const { Client, Intents, Collection } = require('discord.js');
-const hostServer = require('./src/server')
+const hostServer = require('./server')
 require('dotenv').config();
 
 const client = new Client({
@@ -17,9 +17,9 @@ client.slashcommands = new Collection();
 client.events = new Collection();
 client.buttons = new Collection();
 
-client.loadSlashCommands = (bot, reload) => require('./src/handlers/slashcommands')(bot, reload);
-client.loadEvents = (bot, reload) => require('./src/handlers/events')(bot, reload);
-client.loadButtons = (bot, reload) => require('./src/handlers/buttons')(bot, reload);
+client.loadSlashCommands = (bot, reload) => require('./handlers/slashcommands')(bot, reload);
+client.loadEvents = (bot, reload) => require('./handlers/events')(bot, reload);
+client.loadButtons = (bot, reload) => require('./handlers/buttons')(bot, reload);
 
 client.loadSlashCommands(bot, false);
 client.loadEvents(bot, false);
