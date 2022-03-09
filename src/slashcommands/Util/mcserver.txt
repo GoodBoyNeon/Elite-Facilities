@@ -1,0 +1,50 @@
+const { MessageEmbed } = require("discord.js");
+const mcUtil = require("minecraft-server-util");
+
+module.exports = {
+  name: "mcserver",
+  description: "gives information about a minecraft server",
+  options: [
+    {
+      name: "ip",
+      description: "ip of the server",
+      type: "STRING",
+      required: true,
+    },
+    {
+      name: "port",
+      description: "the port of the server. Set to 25565 if not specified",
+      type: "NUMBER",
+    },
+  ],
+  run: async (client, interaction) => {
+
+    
+    const ip = interaction.options.getString("ip");
+    const port = interaction.options.getNumber("port") || 25565;
+    console.log(port)
+
+    mcUtil
+      .status(ip, port)
+      .then((response) => {
+        let mcServerEmbed = new MessageEmbed()
+        .setTitle('Minecraft Server Status')
+        .addFields(
+          { name: 'Server IP', value: ip},
+          {},
+          {},
+        )
+
+        console.log(response);
+      })
+      .catch((error) => {
+        interaction.reply({
+          content: "There was an error executing the command!",
+          ephemeral: true,
+        });
+        throw error;
+      });
+  },
+};
+
+
