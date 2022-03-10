@@ -1,7 +1,5 @@
 const { MessageEmbed } = require("discord.js");
 
-const run = async (client, interaction) => {};
-
 module.exports = {
   name: "avatar",
   description: "get a member's or your own avatar",
