@@ -5,8 +5,14 @@ module.exports = {
   name: "ready",
   run: async (bot) => {
     // <------- MongoDB Setup Start ------->
-    await mongoose.connect(process.env.MONGO_URI, { keepAlive: true });
-    console.log("Connected to database!");
+    await mongoose
+      .connect(process.env.MONGO_URI, { keepAlive: true })
+      .then(() => {
+        console.log("Connected to database!");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     setTimeout(async () => {
       await new testSchema({
