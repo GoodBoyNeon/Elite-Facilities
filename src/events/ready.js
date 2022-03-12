@@ -62,6 +62,11 @@ module.exports = {
         type: "LISTENING",
         status: "ONLINE",
       },
+      {
+        content: "to my Spotify playlist",
+        type: "LISTENING",
+        status: "ONLINE",
+      },
     ];
 
     function pickPresence() {
