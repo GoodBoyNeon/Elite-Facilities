@@ -1,6 +1,11 @@
+const mongoose = require("mongoose");
+
 module.exports = {
   name: "ready",
   run: async (bot) => {
+    // <------- MongoDB Setup Start ------->
+    await mongoose.connect(process.env.MONGO_URI, { keepAlive: true });
+    // <------- MongoDB Setup Start ------->
     const { client } = bot;
 
     const guildId = "894476530992963605";

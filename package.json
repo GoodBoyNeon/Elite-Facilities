@@ -14,6 +14,7 @@
     "express": "^4.17.3",
     "minecraft-server-util": "^5.2.9",
     "moment": "^2.29.1",
+    "mongoose": "^6.2.6",
     "pretty-ms": "^7.0.1"
   }
 }
