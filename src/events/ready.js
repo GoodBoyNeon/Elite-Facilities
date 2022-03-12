@@ -1,11 +1,19 @@
 const mongoose = require("mongoose");
+const testSchema = require("../test-schema");
 
 module.exports = {
   name: "ready",
   run: async (bot) => {
     // <------- MongoDB Setup Start ------->
     await mongoose.connect(process.env.MONGO_URI, { keepAlive: true });
-    // <------- MongoDB Setup Start ------->
+    console.log("Connected to database!");
+
+    setTimeout(async () => {
+      await new testSchema({
+        message: "hello world",
+      }).save();
+    }, 1000);
+    // <------- MongoDB Setup End ------->
     const { client } = bot;
 
     const guildId = "894476530992963605";
