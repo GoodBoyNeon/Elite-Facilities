@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const testSchema = require("../models/test-schema");
 
 module.exports = {
   name: "ready",
