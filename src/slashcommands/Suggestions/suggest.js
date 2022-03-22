@@ -12,8 +12,7 @@ module.exports = {
     },
   ],
   run: async (client, interaction) => {
-    let suggestionChannel =
-      interaction.guild.channels.cache.get("894807015602417705");
+    let suggestionChannel = interaction.guild.channels.cache.get("894807015602417705");
     let suggestion = interaction.options.getString("suggestion");
 
     let suggestionEmbed = new MessageEmbed()
